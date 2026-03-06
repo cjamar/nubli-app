@@ -215,7 +215,7 @@ The focus has been on:
 
 Clone the repository:
 
-git clone https://github.com/yourusername/nubli.git
+git clone https://github.com/cjamar/nubli-app.git
 
 Install dependencies:
 flutter pub get
