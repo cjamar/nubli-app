@@ -1,0 +1,1 @@
+enum EntryFormModeEntity { create, edit }

@@ -1,0 +1,1 @@
+enum EntryTypeEntity { list, note }
