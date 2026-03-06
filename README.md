@@ -131,10 +131,11 @@ lib
 │ │ ├── entry_event.dart
 │ │ └── entry_state.dart
 │ └── pages
-│ └── home_page.dart
-│ └── create_entry_page.dart
+│ │ ├── home_page.dart
+│ │ ├── create_entry_page.dart
 │ └── widgets
-│ └── simple_widgets.dart
+│ │ ├── simple_widgets.dart
+│
 │
 └── main.dart
 ```
