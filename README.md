@@ -43,22 +43,29 @@ The project follows a scalable architecture pattern:
 ```
 lib
 ├── 🫀 core
+│ │
 │ ├── 🕹️ app
 │ │ ├── drawer.dart
 │ │ └── gate_app.dart
+│ │
 │ ├── ⚠️ error
+│ │
 │ ├── 🤖/🍎 platform
+│ │
 │ ├── 🎨 theme
 │ │ └── styles_utils.dart
+│ │
 │ └── 🛠️ utils
 │ ├── helper_utils.dart
 │ ├── routes_utils.dart
 │ └── widgets_utils.dart
 │
 │
-├── features
+├── ⚙️ features
+│ │
+│ │
 │ └── 🔐 auth
-│
+│ │
 │ ├── 🛢️ data
 │ │ ├── datasources
 │ │ │ └── auth_remote_datasource.dart
@@ -83,7 +90,7 @@ lib
 │
 │
 └── 🗒️ entry
-│
+│ │
 │ ├── 🛢️ data
 │ │ ├── datasources
 │ │ │ └── entry_local_datasource.dart
