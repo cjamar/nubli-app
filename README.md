@@ -1,10 +1,10 @@
-# Nubli 📝
+# Nubli 📝📱
 
-Nubli is a minimalist notes and lists application designed to capture ideas quickly and organize everyday information without friction.
+_Nubli is a minimalist notes and lists application designed to capture ideas quickly and organize everyday information without friction._
 
-The name comes from the French expression "N'oublie pas" ("don't forget"), reflecting the core goal of the app: helping you remember what matters.
+_The name comes from the French expression "N'oublie pas" ("don't forget"), reflecting the core goal of the app: helping you remember what matters._
 
-Nubli focuses on clarity, speed and simplicity, turning the entire screen into a distraction-free writing space — similar to modern note-taking apps.
+_Nubli focuses on clarity, speed and simplicity, turning the entire screen into a distraction-free writing space — similar to modern note-taking apps._
 
 ## ✨ Features
 
@@ -40,6 +40,7 @@ Nubli focuses on clarity, speed and simplicity, turning the entire screen into a
 
 The project follows a scalable architecture pattern:
 
+```
 lib
 ├── 🫀 core
 │ ├── 🕹️ app
@@ -129,7 +130,9 @@ lib
 │ └── simple_widgets.dart
 │
 └── main.dart
+```
 
+```
 🖥 Presentation (UI + BLoC)
 ↓
 Domain
@@ -137,8 +140,9 @@ Domain
 ↓
 Data
 🛢️ (API / DB / Models)
+```
 
-State management is handled with:
+**State management** is handled with:
 
 - BLoC Pattern
 
