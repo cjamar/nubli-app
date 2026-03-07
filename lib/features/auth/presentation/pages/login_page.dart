@@ -5,6 +5,7 @@ import 'package:notas_equipo_app/core/utils/widgets_utils.dart';
 import 'package:notas_equipo_app/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:notas_equipo_app/features/auth/presentation/bloc/auth_event.dart';
 import 'package:notas_equipo_app/features/auth/presentation/bloc/auth_state.dart';
+import 'package:notas_equipo_app/features/auth/presentation/pages/register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -316,7 +317,7 @@ class _LoginPageState extends State<LoginPage> {
             width: size.width * 0.8,
             height: size.height * 0.05,
             child: ElevatedButton(
-              onPressed: (isValid && !isLoading) ? () {} : null,
+              onPressed: (isValid && !isLoading) ? _onRegister : null,
               style: ElevatedButton.styleFrom(
                 elevation: 0,
                 side: BorderSide(
@@ -356,6 +357,18 @@ class _LoginPageState extends State<LoginPage> {
         _emailController.text.trim(),
         _passwordController.text.trim(),
       ),
+    );
+  }
+
+  _onRegister() {
+    if (!_isFormValid.value) return;
+
+    _emailController.clear();
+    _passwordController.clear();
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => RegisterPage()),
     );
   }
 

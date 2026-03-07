@@ -125,6 +125,7 @@ class AppStyles {
   static String emailText = 'Email';
   static String passwordText = 'Contraseña';
   static String logoutText = 'Cerrar sesión';
+  static String backToLogin = 'Volver a Login';
 
   // Sizes
   static BorderRadius tileBorderRadius(Size size) =>

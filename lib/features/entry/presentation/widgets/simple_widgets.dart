@@ -24,20 +24,19 @@ class SimpleWidgets {
     AppStyles.alertColor,
   );
 
-  static baseContainer(
-    IconData icon,
-    String text,
-    Size size,
-    Color color,
-  ) => Center(
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(icon, size: size.width * 0.2, color: color),
-        // AppStyles.gradientIconsColor(icon, size.width * 0.2),
-        SizedBox(height: size.height * 0.025),
-        Text(text, style: AppStyles.h1TextStyle, textAlign: TextAlign.center),
-      ],
-    ),
-  );
+  static baseContainer(IconData icon, String text, Size size, Color color) =>
+      Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, size: size.width * 0.2, color: color),
+            SizedBox(height: size.height * 0.025),
+            Text(
+              text,
+              style: AppStyles.h1TextStyle,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      );
 }
