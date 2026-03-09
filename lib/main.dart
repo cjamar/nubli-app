@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:notas_equipo_app/core/utils/routes_utils.dart';
 import 'package:notas_equipo_app/features/auth/data/datasources/auth_remote_datasource.dart';
 import 'package:notas_equipo_app/features/auth/data/repositories/auth_repository_impl.dart';
@@ -18,9 +19,10 @@ import 'features/entry/domain/usecases/create_reminder_entry.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   await Supabase.initialize(
-    url: 'https://drhesmahqhxhpidmzpzm.supabase.co',
-    anonKey: 'sb_publishable_F-T6fEqQSH_LHNGCd0YEgA_nFBxgFE9',
+    url: dotenv.env['SUPABASE_URL']!,
+    anonKey: dotenv.env['SUPABASE_ANON_KEY']!,
   );
   runApp(MyApp());
 }

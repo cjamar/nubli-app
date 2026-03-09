@@ -213,7 +213,7 @@ The focus has been on:
 
 ## ⚙️ Getting Started
 
-Clone the repository:
+### Clone the repository:
 
 git clone https://github.com/cjamar/nubli-app.git
 
@@ -222,6 +222,13 @@ flutter pub get
 
 Run the project:
 flutter run
+
+### Environment Variables
+
+Create a `.env` file in the root directory:
+
+SUPABASE_URL=your_supabase_project_url
+SUPABASE_ANON_KEY=your_publishable_key
 
 ## 📄 License
 

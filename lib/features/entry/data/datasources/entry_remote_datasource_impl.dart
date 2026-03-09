@@ -96,8 +96,6 @@ class EntryRemoteDatasourceImpl implements EntryRemoteDatasource {
         .eq('id', id)
         .single();
 
-    if (entryData == null) return null;
-
     final type = entryData['type'] as String;
 
     if (type == 'list') {
