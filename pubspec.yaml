@@ -39,6 +39,7 @@ dependencies:
   uuid: ^4.3.3
   flutter_launcher_icons: ^0.14.4
   flutter_dotenv: ^6.0.0
+  flutter_native_splash: ^2.4.7
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +57,17 @@ flutter_launcher_icons:
   ios: true
   image_path: "assets/images/launch-icon.png"
 
+flutter_native_splash:
+  color: "#4e62ba"
+  image: assets/images/splash_new.png
+  android: true
+  ios: true
+
+android_12:
+  color: "#4e62ba"
+  image: assets/images/splash_new.png
+  icon_background_color: "#4e62ba"
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -70,6 +82,7 @@ flutter:
   assets:
     - assets/images/logo1.png
     - assets/images/logo2.png
+    - assets/images/splash_new.png
     - .env
     - .env.example
 
