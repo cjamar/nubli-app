@@ -146,7 +146,7 @@ class EntryRemoteDatasourceImpl implements EntryRemoteDatasource {
     final entriesData = await _client
         .from('entries')
         .select()
-        .order('created_at', ascending: true);
+        .order('created_at', ascending: false);
 
     final List<EntryModel> entries = [];
 

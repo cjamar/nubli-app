@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notas_equipo_app/core/theme/styles_utils.dart';
 import 'package:notas_equipo_app/core/utils/widgets_utils.dart';
 import 'package:notas_equipo_app/features/entry/domain/entities/entry_entity.dart';
+import 'package:notas_equipo_app/features/entry/domain/entities/entry_filter_entity.dart';
 import 'package:notas_equipo_app/features/entry/domain/entities/entry_form_mode_entity.dart';
 import 'package:notas_equipo_app/features/entry/domain/entities/entry_type_entity.dart';
 import 'package:notas_equipo_app/features/entry/presentation/bloc/entry_bloc.dart';
@@ -25,6 +26,22 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
   }
+
+  EntryFilterEntity _activeFilter = EntryFilterEntity.all;
+
+  List<EntryEntity> _getFilteredEntries(List<EntryEntity> entries) {
+    switch (_activeFilter) {
+      case EntryFilterEntity.notes:
+        return _categoryFiltered(entries, AppStyles.noteText);
+      case EntryFilterEntity.lists:
+        return _categoryFiltered(entries, AppStyles.listText);
+      case EntryFilterEntity.all:
+        return entries;
+    }
+  }
+
+  _categoryFiltered(List<EntryEntity> entries, String category) =>
+      entries.where((e) => e.categoryId == category).toList();
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +106,8 @@ class _HomePageState extends State<HomePage> {
           if (state.entries.isEmpty) {
             return SimpleWidgets.emptyList(size);
           } else {
-            return _entryList(size, state, context);
+            final filteredEntries = _getFilteredEntries(state.entries);
+            return _entryList(size, state, filteredEntries, context);
           }
         }
 
@@ -101,7 +119,12 @@ class _HomePageState extends State<HomePage> {
     ),
   );
 
-  _entryList(Size size, EntryLoaded state, BuildContext context) {
+  _entryList(
+    Size size,
+    EntryLoaded state,
+    List<EntryEntity> filteredEntries,
+    BuildContext context,
+  ) {
     return Container(
       width: size.width,
       height: size.height,
@@ -111,14 +134,14 @@ class _HomePageState extends State<HomePage> {
           _filterList(size, state.entries),
           Expanded(
             child: ListView.builder(
-              itemCount: state.entries.length,
+              itemCount: filteredEntries.length,
               itemBuilder: (context, index) => Padding(
                 padding: EdgeInsets.only(
-                  bottom: index == state.entries.length - 1
+                  bottom: index == filteredEntries.length - 1
                       ? size.height * 0.15
                       : 0,
                 ),
-                child: _entryTile(size, state.entries, index, context),
+                child: _entryTile(size, filteredEntries, index, context),
               ),
             ),
           ),
@@ -133,30 +156,41 @@ class _HomePageState extends State<HomePage> {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        _filterListButton(size, 'Todos', true),
-        _filterListButton(size, 'Notas', false),
-        _filterListButton(size, 'Listas', false),
+        _filterListButton(size, 'Todos', EntryFilterEntity.all),
+        _filterListButton(size, 'Notas', EntryFilterEntity.notes),
+        _filterListButton(size, 'Listas', EntryFilterEntity.lists),
       ],
     ),
   );
 
-  _filterListButton(Size size, String title, bool isActive) => Container(
-    margin: EdgeInsets.only(right: size.width * 0.03),
-    padding: EdgeInsets.symmetric(
-      horizontal: size.width * 0.04,
-      vertical: size.height * 0.004,
-    ),
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(size.width * 0.05),
-      color: isActive ? AppStyles.primaryColor : AppStyles.primaryColorLight,
-    ),
-    child: Text(
-      title,
-      style: isActive
-          ? AppStyles.mainTextStyleWhite
-          : AppStyles.mainTextStylePrimary,
-    ),
-  );
+  _filterListButton(Size size, String title, EntryFilterEntity filter) {
+    final isActive = _activeFilter == filter;
+
+    return GestureDetector(
+      onTap: () => setState(() {
+        _activeFilter = filter;
+      }),
+      child: Container(
+        margin: EdgeInsets.only(right: size.width * 0.03),
+        padding: EdgeInsets.symmetric(
+          horizontal: size.width * 0.04,
+          vertical: size.height * 0.004,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(size.width * 0.05),
+          color: isActive
+              ? AppStyles.primaryColor
+              : AppStyles.primaryColorLight,
+        ),
+        child: Text(
+          title,
+          style: isActive
+              ? AppStyles.mainTextStyleWhite
+              : AppStyles.mainTextStylePrimary,
+        ),
+      ),
+    );
+  }
 
   _deleteItem(Size size, BuildContext context, EntryEntity entry) async {
     final shouldDelete = await _showModalDeleteItem(size, context, entry.title);
