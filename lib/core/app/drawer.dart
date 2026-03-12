@@ -30,7 +30,7 @@ class AppDrawer extends StatelessWidget {
               title: Text(
                 textAlign: TextAlign.center,
                 AppStyles.logoutText,
-                style: AppStyles.buttonTextStyle,
+                style: AppStyles.bigTextFieldStyle,
               ),
               onTap: () => _logOut(context),
             ),

@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Image(
               image: AssetImage('assets/images/logo1.png'),
-              width: size.width * 0.22,
+              width: size.width * 0.2,
             ),
           ],
         ),
@@ -211,13 +211,7 @@ class _HomePageState extends State<HomePage> {
     onLongPress: () => _deleteItem(size, context, entries[index]),
     child: Container(
       padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
-      // margin: EdgeInsets.symmetric(
-      //   horizontal: size.width * 0.025,
-      //   vertical: size.width * 0.015,
-      // ),
       decoration: BoxDecoration(
-        // borderRadius: BorderRadius.circular(size.width * 0.025),
-        // border: Border.all(color: AppStyles.primaryColorLight),
         border: Border(
           bottom: BorderSide(color: AppStyles.secondaryWhite, width: 1),
         ),

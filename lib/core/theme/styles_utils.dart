@@ -26,15 +26,6 @@ class AppStyles {
   static Color secondaryColorDark = const Color.fromARGB(255, 203, 85, 203);
 
   static Color disabledColor = const Color.fromARGB(29, 97, 97, 97);
-  static LinearGradient footerHomeGradient = LinearGradient(
-    begin: Alignment.bottomCenter,
-    end: Alignment.topCenter,
-    colors: <Color>[
-      primaryWhite,
-      Colors.transparent,
-    ], // Gradient from https://learnui.design/tools/gradient-generator.html
-    tileMode: TileMode.mirror,
-  );
   static LinearGradient basicColorGradient = LinearGradient(
     colors: [primaryColor, secondaryColor],
   );
@@ -48,21 +39,21 @@ class AppStyles {
   static Color alertColor = Colors.redAccent;
 
   // TextStyles
-  static TextStyle mainTextStyle = TextStyle(fontSize: 16, color: primaryDark);
+  static TextStyle mainTextStyle = TextStyle(fontSize: 15, color: primaryDark);
   static TextStyle mainTextStyleWhite = TextStyle(
-    fontSize: 16,
+    fontSize: 15,
     color: primaryWhite,
   );
   static TextStyle mainTextStylePrimary = TextStyle(
-    fontSize: 16,
+    fontSize: 15,
     color: primaryColor,
   );
   static TextStyle tileTextStyle = TextStyle(
-    fontSize: 16,
+    fontSize: 15,
     color: primaryDark,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w500,
   );
-  static TextStyle cardTextStyle = TextStyle(fontSize: 19, color: primaryDark);
+  static TextStyle cardTextStyle = TextStyle(fontSize: 17, color: primaryDark);
   static TextStyle secondaryTextStyle = TextStyle(
     fontSize: 13,
     color: primaryDark,
@@ -81,19 +72,19 @@ class AppStyles {
     color: primaryDark,
   );
 
-  static TextStyle h1TextStyle = TextStyle(fontSize: 23, color: primaryDark);
-  static TextStyle h2TextStyle = TextStyle(fontSize: 20, color: primaryDark);
+  static TextStyle h1TextStyle = TextStyle(fontSize: 20, color: primaryDark);
+  static TextStyle h2TextStyle = TextStyle(fontSize: 19, color: primaryDark);
   static TextStyle h2TextStyleWhite = TextStyle(
-    fontSize: 20,
+    fontSize: 19,
     color: primaryWhite,
   );
-  static TextStyle formTextStyle = TextStyle(fontSize: 18, color: primaryWhite);
+  static TextStyle formTextStyle = TextStyle(fontSize: 16, color: primaryWhite);
   static TextStyle buttonTextStyle = TextStyle(
     fontSize: 18,
     color: primaryDark,
   );
   static TextStyle bigTextFieldStyle = TextStyle(
-    fontSize: 21,
+    fontSize: 17,
     color: primaryDark,
   );
 
