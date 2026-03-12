@@ -154,12 +154,11 @@ class _HomePageState extends State<HomePage> {
     width: size.width * 0.95,
     height: size.height * 0.05,
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        _filterListButton(size, 'Todos', EntryFilterEntity.all),
-        _filterListButton(size, 'Notas', EntryFilterEntity.notes),
-        _filterListButton(size, 'Listas', EntryFilterEntity.lists),
-      ],
+      children: EntryFilterEntity.values
+          .map<Widget>(
+            (filter) => _filterListButton(size, filter.label, filter),
+          )
+          .toList(),
     ),
   );
 
