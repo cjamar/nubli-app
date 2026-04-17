@@ -1,5 +1,9 @@
 # Nubli 📝📱
 
+### ⚠️ The Supabase Database is temporarily disabled (sorry)
+
+--
+
 _Nubli is a minimalist notes and lists application designed to capture ideas quickly and organize everyday information without friction._
 
 _The name comes from the French expression "N'oublie pas" ("don't forget"), reflecting the core goal of the app: helping you remember what matters._
